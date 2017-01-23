@@ -1,0 +1,33 @@
+#Global Parameters#
+
+gridSizeX 300
+gridSizeY 300
+boxSize 1
+delay 300
+scheduling 0
+nbTicks 3000000
+grid true
+trace false
+seed 1
+refresh 1
+toric false
+
+#Particles specific parameters#
+
+nbParticles 1500
+
+#WaTor specific parameters#
+
+nbFishs 100
+fishBreedTime 3
+nbSharks 300
+sharkBreedTime 9
+sharkStarveTime 8
+
+#Pacman
+
+wallsPercentage 20
+nbHunters 5
+speedHunter 2
+speedAvatar 1
+defenderLife 50
