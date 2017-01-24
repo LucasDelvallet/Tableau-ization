@@ -1,11 +1,11 @@
 #Global Parameters#
 
-gridSizeX 300
-gridSizeY 300
+gridSizeX 500
+gridSizeY 500
 boxSize 1
-delay 300
+delay 0
 scheduling 0
-nbTicks 3000000
+nbTicks 1000
 grid true
 trace false
 seed 1
@@ -30,4 +30,4 @@ wallsPercentage 20
 nbHunters 5
 speedHunter 2
 speedAvatar 1
-defenderLife 50
+defenderLife 10

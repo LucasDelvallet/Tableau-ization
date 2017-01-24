@@ -15,12 +15,12 @@ public class CodeParser {
 		
 	}
 	
-	public Map<String, Integer> parseFile(){
+	public Map<String, Integer> parseFile(String fileName){
 	    Map<String, Integer> countByWords = new HashMap<String, Integer>();
 	    Scanner s;
 		try {
 			File f = new File("");
-			String n = f.getAbsolutePath() + "\\Input\\Example.java";
+			String n = f.getAbsolutePath() + "\\Input\\"+fileName;
 			
 			String content = new Scanner(new File(n)).useDelimiter("\\Z").next();
 

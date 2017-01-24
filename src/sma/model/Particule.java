@@ -9,15 +9,13 @@ import sma.parameter.Parameter;
 
 public class Particule extends Agent {
 
-	public Particule(Environment environment, Parameter parameters, Position xy, Color color) {
+	private int lifetime;
+	public Particule(Environment environment, Parameter parameters, Position xy, Color color, int hashCode, int lifeTime) {
 		super(environment, parameters, xy);
-
-		//int r = rand.nextInt(200);
-		//int g = rand.nextInt(200);
-		//int b = rand.nextInt(200);
+		this.lifetime = lifeTime*50;
 		this.color = color;
 
-		setRandomDirection();
+		setRandomDirection(hashCode);
 	}
 
 	@Override
@@ -27,7 +25,6 @@ public class Particule extends Agent {
 
 	@Override
 	public void update() {
-
 		if (!needToFreeze) {
 			environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
 					/ parameters.getBoxSize()] = null;
@@ -40,6 +37,10 @@ public class Particule extends Agent {
 
 		if (parameters.needTrace() && this.needToFreeze) {
 			System.out.println(trace());
+		}
+		lifetime--;
+		if(lifetime == 0){
+			this.environment.removeAgent(this);
 		}
 	}
 	

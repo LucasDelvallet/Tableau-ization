@@ -1,10 +1,7 @@
 package sma.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Observable;
-import java.util.Random;
 
 import sma.core.Agent;
 import sma.parameter.Parameter;
@@ -33,26 +30,15 @@ public abstract class SMA extends Observable {
 	}
 	
 	public void run(){
-		Random rand = new Random(parameters.getSeed());
 		tick = 1;
 		long startTimeTotal = System.currentTimeMillis();
 		while(tick < parameters.getNbTicks()){
 			long startTime = System.currentTimeMillis();
-			switch(parameters.getScheduling()){
-			case 0:
-				Collections.shuffle(agentlist,rand);
-			case 1:
-				for(int i = 0; i < agentlist.size(); i++){
-					Agent agent = agentlist.get(i);
-					agent.decide();
-					agent.update();
-				}
-				break;
-			case 2:
-				int indexRand = rand.nextInt(agentlist.size());
-				agentlist.get(indexRand).decide();
-				agentlist.get(indexRand).update();
-				break;
+
+			for (int i = 0; i < agentlist.size(); i++) {
+				Agent agent = agentlist.get(i);
+				agent.decide();
+				agent.update();
 			}
 
 			

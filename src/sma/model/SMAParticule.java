@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Random;
 
+import main.Main;
 import processing.CodeParser;
 import sma.core.Agent;
 import sma.model.Position;
@@ -32,24 +32,20 @@ public class SMAParticule extends SMA {
 				environment.agentsPosition[i/parameters.getBoxSize()][j/parameters.getBoxSize()] = a;
 			}
 		}
-
-		Random rand = new Random(parameters.getSeed());
-		if(parameters.getSeed() == 0){
-			rand = new Random();
-		}
 		
 		CodeParser codeParser = new CodeParser();
-		Map<String, Integer> wordsByCount = codeParser.parseFile();
+		Map<String, Integer> wordsByCount = codeParser.parseFile(Main.FILENAME);
 		for (Entry<String, Integer> entry : wordsByCount.entrySet())
 		{
-			String sColor = intToARGB(entry.getKey().hashCode());
+			int hashCode = entry.getKey().hashCode();
+			String sColor = intToARGB(hashCode);
 			
 		    Color color = Color.decode("#"+sColor);
 		    
 		    for(int i = 0; i < entry.getValue(); i++){
-				int index = rand.nextInt(possiblePositions.size());
-				agentlist.add(new Particule(environment, parameters, possiblePositions.get(index), color));
-				possiblePositions.remove(index);
+				//int index = rand.nextInt(possiblePositions.size());
+				agentlist.add(new Particule(environment, parameters, possiblePositions.get(i), color, hashCode, entry.getValue()));
+				possiblePositions.remove(i);
 			}
 		}		
 	}

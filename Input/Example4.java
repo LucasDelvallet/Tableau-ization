@@ -1,12 +1,14 @@
 package sma.core;
 
 import java.awt.Color;
+import java.util.Random;
 
 import sma.model.Environment;
 import sma.model.Position;
 import sma.parameter.Parameter;
 
 public abstract class Agent {
+	protected static Random rand;
 	protected Position currentPosition, nextMove;
 	protected boolean needToFreeze;
 	protected Environment environment;
@@ -16,6 +18,14 @@ public abstract class Agent {
 	public Agent(Environment environment, Parameter parameters, Position xy) {
 		this.environment = environment;
 		this.parameters = parameters;
+
+		if (rand == null) {
+			if (parameters.getSeed() == 0) {
+				rand = new Random();
+			} else {
+				rand = new Random(parameters.getSeed());
+			}
+		}
 
 		currentPosition = xy;
 		nextMove = new Position();

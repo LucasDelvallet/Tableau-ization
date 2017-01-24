@@ -1,10 +1,15 @@
 package generator;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.imageio.ImageIO;
+
+import sma.core.Agent;
+import sma.model.Position;
 
 public class ImageGenerator {
 	public ImageGenerator(){
@@ -12,24 +17,18 @@ public class ImageGenerator {
 	}
 	
 	
-	public void writeToFile(){
-	     int width = 300;
-	     int height = 300;
+	public void writeToFile(List<Agent> agents, int width, int height){
 	     BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
 	     File f = null;
 	     
-	     for(int y = 0; y < height; y++){
-	       for(int x = 0; x < width; x++){
-	         int a = (int)(Math.random()*256); //alpha
-	         int r = (int)(Math.random()*256); //red
-	         int g = (int)(Math.random()*256); //green
-	         int b = (int)(Math.random()*256); //blue
-	 
-	         int p = (a<<24) | (r<<16) | (g<<8) | b; //pixel
-	 
-	         img.setRGB(x, y, p);
-	       }
+	     for(Agent agent : agents){
+	    	 Color c = agent.getColor();
+	    	 int p = (0<<24) | (c.getRed()<<16) | (c.getGreen()<<8) | c.getBlue();
+	    	 
+	         p = (255<<24) | (c.getRed()<<16) | (c.getGreen()<<8) | c.getBlue();
+	    	 Position position = agent.getCurrentIndex();
+	    	 img.setRGB(position.getX(), position.getY(), p);
 	     }
 	     
 	     try{

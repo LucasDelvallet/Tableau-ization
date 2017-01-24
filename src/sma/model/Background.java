@@ -12,7 +12,7 @@ public class Background extends Agent {
 	public Background(Environment environment, Parameter parameters, Position xy) {
 		super(environment, parameters, xy);
 
-		color = Color.WHITE;
+		color = Color.BLACK;
 	}
 
 	@Override
