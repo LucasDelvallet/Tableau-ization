@@ -12,7 +12,7 @@ import agent.sma.parameter.ParameterReader;
 
 public class Main {
 
-	public static final String FILENAME = "Example.java";
+	public static final String FILENAME = "Example2.java";
 	
 	public static void main(String[] args) {
 		try {

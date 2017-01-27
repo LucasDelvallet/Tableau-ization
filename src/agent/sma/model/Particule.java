@@ -27,11 +27,11 @@ public class Particule extends Agent {
 	@Override
 	public void update() {
 		if (!needToFreeze) {
-			environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
-					/ parameters.getBoxSize()] = null;
+			//environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
+			//		/ parameters.getBoxSize()] = null;
 			currentPosition = this.getNextPosition();
-			environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
-					/ parameters.getBoxSize()] = this;
+			//environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
+			//		/ parameters.getBoxSize()] = this;
 		} else {
 			needToFreeze = false;
 		}
@@ -70,7 +70,7 @@ public class Particule extends Agent {
 	    double b = weight0 * c0.getBlue() + weight1 * c1.getBlue();
 	    double a = Math.max(c0.getAlpha(), c1.getAlpha());
 
-	    return new Color((int) r, (int) g, (int) b, (int) a);
+	    return new Color((int) r, (int) g, (int) b);
 	  }
 	
 	@Override

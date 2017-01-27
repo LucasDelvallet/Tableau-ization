@@ -31,7 +31,7 @@ public class CodeParser {
 				String content = removeCommentary(sc.nextLine());
 				if (content == null) continue;
 				content = content.replaceAll("[^A-Za-z0-9]", " ");
-				System.out.println(content);
+				//System.out.println(content);
 
 				for (String next : content.split("[ \t\\x0B\f\r]+")) {
 					Integer count = countByWords.get(next);
