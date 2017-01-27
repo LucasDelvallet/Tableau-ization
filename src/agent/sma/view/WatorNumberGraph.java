@@ -1,6 +1,5 @@
-package sma.view;
+package agent.sma.view;
 
-import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -10,19 +9,15 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.ValueAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import sma.core.Agent;
- 
- 
+
+
 public class WatorNumberGraph extends Application {
  
 	private static final int MAX_DATA_POINTS = 50;

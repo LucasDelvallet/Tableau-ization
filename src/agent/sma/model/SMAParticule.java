@@ -1,4 +1,4 @@
-package sma.model;
+package agent.sma.model;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -6,12 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import main.Main;
-import processing.CodeParser;
-import sma.core.Agent;
-import sma.model.Position;
-import sma.model.SMA;
-import sma.parameter.Parameter;
+import agent.main.Main;
+import agent.processing.CodeParser;
+import agent.sma.core.Agent;
+import agent.sma.parameter.Parameter;
 
 public class SMAParticule extends SMA {
 

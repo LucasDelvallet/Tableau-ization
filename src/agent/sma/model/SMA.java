@@ -1,10 +1,10 @@
-package sma.model;
+package agent.sma.model;
 
 import java.util.List;
 import java.util.Observable;
 
-import sma.core.Agent;
-import sma.parameter.Parameter;
+import agent.sma.core.Agent;
+import agent.sma.parameter.Parameter;
 
 public abstract class SMA extends Observable {
 	

@@ -1,4 +1,4 @@
-package sma.parameter;
+package agent.sma.parameter;
 
 import java.io.BufferedReader;
 import java.io.File;

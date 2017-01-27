@@ -1,16 +1,16 @@
-package sma.core;
+package agent.sma.core;
 
 import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JScrollPane;
 
-import sma.model.SMA;
-import sma.model.SMAParticule;
-import sma.parameter.Parameter;
-import sma.parameter.ParameterReader;
-import sma.view.GUIHelper;
-import sma.view.View;
+import agent.sma.model.SMA;
+import agent.sma.model.SMAParticule;
+import agent.sma.parameter.Parameter;
+import agent.sma.parameter.ParameterReader;
+import agent.sma.view.GUIHelper;
+import agent.sma.view.View;
 
 public class Main {
 	

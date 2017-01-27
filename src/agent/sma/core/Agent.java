@@ -1,10 +1,10 @@
-package sma.core;
+package agent.sma.core;
 
 import java.awt.Color;
 
-import sma.model.Environment;
-import sma.model.Position;
-import sma.parameter.Parameter;
+import agent.sma.model.Environment;
+import agent.sma.model.Position;
+import agent.sma.parameter.Parameter;
 
 public abstract class Agent {
 	protected Position currentPosition, nextMove;

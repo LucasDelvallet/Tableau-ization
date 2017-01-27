@@ -1,9 +1,9 @@
-package sma.model;
+package agent.sma.model;
 
 import java.util.List;
 
-import sma.core.Agent;
-import sma.parameter.Parameter;
+import agent.sma.core.Agent;
+import agent.sma.parameter.Parameter;
 
 public class Environment {
 	

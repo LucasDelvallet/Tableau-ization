@@ -1,11 +1,9 @@
-package sma.model;
+package agent.sma.model;
 
 import java.awt.Color;
 
-import sma.core.Agent;
-import sma.model.Environment;
-import sma.model.Position;
-import sma.parameter.Parameter;
+import agent.sma.core.Agent;
+import agent.sma.parameter.Parameter;
 
 public class Particule extends Agent {
 

@@ -1,4 +1,4 @@
-package sma.model;
+package agent.sma.model;
 
 public class Position {
 	private int x, y;

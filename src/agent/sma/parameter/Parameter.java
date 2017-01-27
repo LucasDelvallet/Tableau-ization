@@ -1,4 +1,4 @@
-package sma.parameter;
+package agent.sma.parameter;
 
 public class Parameter {
 	private int gridSizeX;

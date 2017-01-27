@@ -1,14 +1,14 @@
-package main;
+package agent.main;
 
 import java.io.File;
 import java.io.IOException;
 
-import generator.ImageGenerator;
-import processing.CodeParser;
-import sma.model.SMA;
-import sma.model.SMAParticule;
-import sma.parameter.Parameter;
-import sma.parameter.ParameterReader;
+import agent.generator.ImageGenerator;
+import agent.processing.CodeParser;
+import agent.sma.model.SMA;
+import agent.sma.model.SMAParticule;
+import agent.sma.parameter.Parameter;
+import agent.sma.parameter.ParameterReader;
 
 public class Main {
 

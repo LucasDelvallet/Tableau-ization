@@ -1,4 +1,4 @@
-package sma.view;
+package agent.sma.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,9 +11,9 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import sma.core.Agent;
-import sma.model.SMA;
-import sma.parameter.Parameter;
+import agent.sma.core.Agent;
+import agent.sma.model.SMA;
+import agent.sma.parameter.Parameter;
 
 public class View extends JPanel implements Observer{
 	

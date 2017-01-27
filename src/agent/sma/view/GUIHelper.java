@@ -1,4 +1,4 @@
-package sma.view;
+package agent.sma.view;
 
 
 import java.awt.event.WindowAdapter;
