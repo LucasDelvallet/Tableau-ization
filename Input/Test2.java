@@ -8,6 +8,7 @@ public class Test2 {
 
     public Test2(String zblzbl, int ohlala){
         this.zizi = ohlala;
+        // test
         zblzbl += "test";
         this.hihi += 7;
     }

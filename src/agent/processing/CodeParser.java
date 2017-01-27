@@ -22,8 +22,8 @@ public class CodeParser {
 			String n = f.getAbsolutePath() + "\\Input\\"+fileName;
 			
 			Scanner sc = new Scanner(new File(n));
-			while(sc.hasNext()){
-				String content = removeCommentary(sc.next());
+			while(sc.hasNextLine()){
+				String content = removeCommentary(sc.nextLine());
 				if (content == null) continue;
 				System.out.println(content);
 
@@ -57,8 +57,13 @@ public class CodeParser {
 				return null;
 			}
 		} else if (commentaryBegin != -1 || singleCommentary != -1) {
-			str = str.substring(0, commentaryBegin);
-			if (commentaryBegin != 1) commentaryDetected = true;
+
+			if (commentaryBegin != -1){
+				str = str.substring(0, commentaryBegin);
+				commentaryDetected = true;
+			} else {
+				str = str.substring(0, singleCommentary);
+			}
 		}
 		return str;
 	}
