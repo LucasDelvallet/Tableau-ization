@@ -43,7 +43,7 @@ public class SMAParticule extends SMA {
 		    for(int i = 0; i < entry.getValue(); i++){
 				//int index = rand.nextInt(possiblePositions.size());
 				agentlist.add(new Particule(environment, parameters, possiblePositions.get(i), color, hashCode, entry.getValue()));
-				possiblePositions.remove(i);
+				possiblePositions.remove(0);
 			}
 		}		
 	}

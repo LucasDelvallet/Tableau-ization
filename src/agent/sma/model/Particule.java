@@ -13,7 +13,10 @@ public class Particule extends Agent {
 		this.lifetime = lifeTime*50;
 		this.color = color;
 
-		setRandomDirection(hashCode);
+		//setRandomDirection(hashCode);
+		
+		nextMove.setX(parameters.getBoxSize());
+		nextMove.setY(parameters.getBoxSize());
 	}
 
 	@Override
@@ -51,9 +54,9 @@ public class Particule extends Agent {
 		if(collided.getClass().getSimpleName().equals("Background")){
 			collided.setColor(blend(this.color, collided.getColor()));
 		}else{
-			Position tmp = collided.getNextMove();
-			collided.setNextMove(getNextMove());
-			setNextMove(tmp);
+			//Position tmp = collided.getNextMove();
+			//collided.setNextMove(getNextMove());
+			//setNextMove(tmp);
 		}
 	}
 	

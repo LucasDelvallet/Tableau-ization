@@ -20,24 +20,12 @@ public class View extends JPanel implements Observer{
 	private static final long serialVersionUID = 1L;
 	private SMA sma;
 	private Parameter parameters;
-	private WatorNumberGraph watorNumberGraph;
-	private WatorRatioGraph watorRatioGraph;
-	private boolean displayGraph;
 	
-	public View(Parameter parameters, boolean displayGraph){
+	public View(Parameter parameters){
 		this.parameters = parameters;
-		this.displayGraph = displayGraph;
 		this.setBackground(Color.WHITE);
 		this.setPreferredSize(new Dimension(parameters.getGridSizeX()*parameters.getBoxSize(),parameters.getGridSizeY()*parameters.getBoxSize()));
 	
-		if(displayGraph){
-			
-			watorNumberGraph = new WatorNumberGraph();
-			watorNumberGraph.display();
-			
-			watorRatioGraph = new WatorRatioGraph();
-		}
-		
 	}
 	
 	public void paint(Graphics g) {

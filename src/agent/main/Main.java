@@ -12,7 +12,7 @@ import agent.sma.parameter.ParameterReader;
 
 public class Main {
 
-	public static final String FILENAME = "Test2.java";
+	public static final String FILENAME = "Example.java";
 	
 	public static void main(String[] args) {
 		try {
@@ -23,9 +23,7 @@ public class Main {
 			
 			ImageGenerator imgGenerator = new ImageGenerator();
 			imgGenerator.writeToFile(sma.getAgentlist(), param.getGridSizeX(), param.getGridSizeY());
-			
-			CodeParser parser = new CodeParser();
-			parser.parseFile(FILENAME);
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
