@@ -23,7 +23,7 @@ public class View extends JPanel implements Observer{
 	
 	public View(Parameter parameters){
 		this.parameters = parameters;
-		this.setBackground(Color.WHITE);
+		this.setBackground(Color.BLACK);
 		this.setPreferredSize(new Dimension(parameters.getGridSizeX()*parameters.getBoxSize(),parameters.getGridSizeY()*parameters.getBoxSize()));
 	
 	}
@@ -33,21 +33,6 @@ public class View extends JPanel implements Observer{
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setPaint(Color.GRAY);
 		
-		if(parameters.needGrid()){
-			int grid_division_x = parameters.getGridSizeX();
-			int grid_division_y = parameters.getGridSizeY();
-	        for (int i = 1; i < grid_division_x; i++) {
-	           int x = i * (sma.getEnvironment().getWidth() / grid_division_x);
-	           g2.drawLine(x, 0, x, sma.getEnvironment().getHeight());
-	        }
-	        for (int i = 1; i < grid_division_y; i++) {
-	           int y = i * (sma.getEnvironment().getHeight() / grid_division_y);
-	           g2.drawLine(0, y, sma.getEnvironment().getWidth(), y);
-	        }
-		}
-		
-		int nbShark = 0;
-		int nbFish = 0;
 		List<Agent> agentlist = sma.getAgentlist();
 		for(int i = 0; i < agentlist.size(); i++){
 			Agent agent = agentlist.get(i);

@@ -10,7 +10,7 @@ public class Particule extends Agent {
 	private int lifetime;
 	public Particule(Environment environment, Parameter parameters, Position xy, Color color, int hashCode, int lifeTime) {
 		super(environment, parameters, xy);
-		this.lifetime = lifeTime*50;
+		this.lifetime = lifeTime * 50;
 		this.color = color;
 
 		//setRandomDirection(hashCode);
@@ -61,6 +61,9 @@ public class Particule extends Agent {
 	}
 	
 	public static Color blend(Color c0, Color c1) {
+		if(c1.equals(Color.BLACK)){
+			return c0;
+		}
 	    double totalAlpha = c0.getAlpha() + c1.getAlpha();
 	    double weight0 = c0.getAlpha() / totalAlpha;
 	    double weight1 = c1.getAlpha() / totalAlpha;
@@ -70,7 +73,7 @@ public class Particule extends Agent {
 	    double b = weight0 * c0.getBlue() + weight1 * c1.getBlue();
 	    double a = Math.max(c0.getAlpha(), c1.getAlpha());
 
-	    return new Color((int) r, (int) g, (int) b);
+	    return new Color((int) r, (int) g, (int) b, (int)a);
 	  }
 	
 	@Override

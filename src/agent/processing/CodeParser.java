@@ -34,11 +34,13 @@ public class CodeParser {
 				//System.out.println(content);
 
 				for (String next : content.split("[ \t\\x0B\f\r]+")) {
-					Integer count = countByWords.get(next);
-					if (count != null) {
-						countByWords.put(next, count + 1);
-					} else {
-						countByWords.put(next, 1);
+					if(!next.isEmpty()){
+						Integer count = countByWords.get(next);
+						if (count != null) {
+							countByWords.put(next, count + 1);
+						} else {
+							countByWords.put(next, 1);
+						}
 					}
 				}
 			}
@@ -47,9 +49,7 @@ public class CodeParser {
 			e.printStackTrace();
 		}
 		
-		
-		
-		return sortByValue(countByWords);
+		return countByWords;
 	}
 	
 	public <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
