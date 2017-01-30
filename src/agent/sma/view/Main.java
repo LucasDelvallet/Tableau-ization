@@ -1,16 +1,14 @@
-package agent.sma.core;
+package agent.sma.view;
 
 import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JScrollPane;
 
-import agent.sma.model.SMA;
+import agent.sma.core.SMA;
 import agent.sma.model.SMAParticule;
 import agent.sma.parameter.Parameter;
 import agent.sma.parameter.ParameterReader;
-import agent.sma.view.GUIHelper;
-import agent.sma.view.View;
 
 public class Main {
 	
@@ -23,7 +21,7 @@ public class Main {
 			sma.addObserver(view);
 			
 			JScrollPane scrollPane = new JScrollPane(view);
-			GUIHelper.showOnFrame(scrollPane,"S.M.A");
+			GUIHelper.showOnFrame(scrollPane,"Tableau-ization");
 			
 			sma.run();
 		} catch (IOException e) {

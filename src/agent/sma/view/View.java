@@ -12,7 +12,7 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 import agent.sma.core.Agent;
-import agent.sma.model.SMA;
+import agent.sma.core.SMA;
 import agent.sma.parameter.Parameter;
 
 public class View extends JPanel implements Observer{

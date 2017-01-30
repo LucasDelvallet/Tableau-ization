@@ -2,6 +2,7 @@ package agent.sma.model;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -9,6 +10,7 @@ import java.util.Map.Entry;
 import agent.main.Main;
 import agent.processing.CodeParser;
 import agent.sma.core.Agent;
+import agent.sma.core.SMA;
 import agent.sma.parameter.Parameter;
 
 public class SMAParticule extends SMA {
@@ -32,19 +34,70 @@ public class SMAParticule extends SMA {
 		}
 		
 		CodeParser codeParser = new CodeParser();
-		Map<String, Integer> wordsByCount = codeParser.parseFile(Main.FILENAME);
+		LinkedHashMap<String, Integer> wordsByCount = codeParser.parseFile(Main.FILENAME);
+		int x = 0;
+		int y = 0;
+		boolean l = true;
+		boolean d = false;
+		boolean r = false;
+		boolean u = false;
+		int turn = 0;
+		
+		int total = 0;
+		for (Entry<String, Integer> entry : wordsByCount.entrySet())
+		{
+			total += entry.getValue();
+		}
+		
+		float ratioUpscale = 1;
+		if(total < environment.getHeight()/2){
+			ratioUpscale = (float)environment.getHeight()/2 / (float)total ;
+		}
+		
 		for (Entry<String, Integer> entry : wordsByCount.entrySet())
 		{
 			int hashCode = entry.getKey().hashCode();
-			String sColor = intToARGB(hashCode);
+			String sColor = "#"+ intToARGB(hashCode);
 			
-		    Color color = Color.decode("#"+sColor);
+		    Color color = Color.decode(sColor);
 		    
-		    for(int i = 0; i < entry.getValue(); i++){
+		    for(int i = 0; i < (entry.getValue() * ratioUpscale); i++){
 				//int index = rand.nextInt(possiblePositions.size());
-				agentlist.add(new Particule(environment, parameters, possiblePositions.get(0), color, hashCode, entry.getValue()));
-				possiblePositions.remove(0);
-			}
+		    	agentlist.add(new Particule(environment, parameters, new Position(x, y), color, hashCode, entry.getValue() + turn));
+				//possiblePositions.remove(0);
+		    	
+		    	if(l){
+		    		y++;
+			    	if(y >= environment.getHeight() - turn){
+			    		l = false;
+			    		d = true;
+			    		y--;
+			    	}
+		    	}
+		    	if(d){
+		    		x++;
+			    	if(x >= environment.getWidth() - turn){
+			    		d = false;
+			    		r = true;
+			    		x--;
+			    	}
+		    	}
+		    	if(r){
+		    		y--;
+			    	if(y <= turn){
+			    		r = false;
+			    		u = true;
+			    	}
+		    	}
+		    	if(u){
+		    		x--;
+			    	if(x <= turn + 1 ){
+			    		u = false;
+			    		l = true;
+			    		turn ++;
+			    	}
+		    	}
+		    }
 		}		
 	}
 	

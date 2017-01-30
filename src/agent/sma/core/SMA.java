@@ -1,9 +1,8 @@
-package agent.sma.model;
+package agent.sma.core;
 
 import java.util.List;
 import java.util.Observable;
 
-import agent.sma.core.Agent;
 import agent.sma.parameter.Parameter;
 
 public abstract class SMA extends Observable {
@@ -47,12 +46,6 @@ public abstract class SMA extends Observable {
 			if(parameters.getRefresh()!= 0 && (tick == 0 || tick % parameters.getRefresh() == 0)){
 				setChanged();
 	            notifyObservers();
-			}
-			
-			long endTime = System.currentTimeMillis();
-			long duration = (endTime - startTime);
-			if(parameters.needTrace()){
-				System.out.println("End of tick "+ tick+"  time : " + duration+"ms");
 			}
 			
             try {

@@ -2,7 +2,6 @@ package agent.sma.core;
 
 import java.awt.Color;
 
-import agent.sma.model.Environment;
 import agent.sma.model.Position;
 import agent.sma.parameter.Parameter;
 
@@ -47,70 +46,15 @@ public abstract class Agent {
 		this.color = color;
 	}
 
-	protected void setRandomDirection(int hashCode) {
-		while(hashCode > 8){
-			hashCode = hashCode / 8;
-		}
-		switch (hashCode) {
-		case 0:
-			nextMove.setX(parameters.getBoxSize());
-			nextMove.setY(0);
-			break;
-		case 1:
-			nextMove.setX(parameters.getBoxSize());
-			nextMove.setY(parameters.getBoxSize());
-			break;
-		case 2:
-			nextMove.setX(0);
-			nextMove.setY(parameters.getBoxSize());
-			break;
-		case 3:
-			nextMove.setX(-parameters.getBoxSize());
-			nextMove.setY(parameters.getBoxSize());
-			break;
-		case 4:
-			nextMove.setX(-parameters.getBoxSize());
-			nextMove.setY(0);
-			break;
-		case 5:
-			nextMove.setX(-parameters.getBoxSize());
-			nextMove.setY(-parameters.getBoxSize());
-			break;
-		case 6:
-			nextMove.setX(0);
-			nextMove.setY(-parameters.getBoxSize());
-			break;
-		case 7:
-			nextMove.setX(parameters.getBoxSize());
-			nextMove.setY(-parameters.getBoxSize());
-			break;
-		}
-	}
-
 	public Position getNextPosition() {
 		Position nextPosition = new Position((currentPosition.getX() + nextMove.getX()),
 				currentPosition.getY() + nextMove.getY());
-		if (parameters.isToric()) {
-			if (nextPosition.getX() < 0) {
-				nextPosition.setX((parameters.getGridSizeX() - 1) * parameters.getBoxSize());
-			}
-			if (nextPosition.getX() >= parameters.getGridSizeX() * parameters.getBoxSize()) {
-				nextPosition.setX(0);
-			}
-
-			if (nextPosition.getY() < 0) {
-				nextPosition.setY((parameters.getGridSizeY() - 1) * parameters.getBoxSize());
-			}
-			if (nextPosition.getY() >= parameters.getGridSizeY() * parameters.getBoxSize()) {
-				nextPosition.setY(0);
-			}
-		}
 
 		return nextPosition;
 	}
 
 	protected boolean processAgentCollision() {
-		if (parameters.isToric() || (!parameters.isToric() && !processWallCollision())) {
+		if (!processWallCollision()) {
 			Position next = getNextPosition();
 			Agent agent = null;
 
@@ -162,8 +106,5 @@ public abstract class Agent {
 
 	public abstract void update();
 
-	public abstract void agentCollisionReaction(Agent collided);
-
-	public abstract String trace();
-	
+	public abstract void agentCollisionReaction(Agent collided);	
 }

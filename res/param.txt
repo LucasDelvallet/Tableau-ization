@@ -11,7 +11,3 @@ trace false
 seed 1
 refresh 1
 toric false
-
-#Particles specific parameters#
-
-nbParticles 1500

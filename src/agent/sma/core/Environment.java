@@ -1,8 +1,7 @@
-package agent.sma.model;
+package agent.sma.core;
 
 import java.util.List;
 
-import agent.sma.core.Agent;
 import agent.sma.parameter.Parameter;
 
 public class Environment {
@@ -37,10 +36,6 @@ public class Environment {
 	
 	public void setAgentlist(List<Agent> agentlist){
 		this.agentlist = agentlist;
-		
-		//for(Agent agent : agentlist){
-		//	agentsPosition[agent.getCurrentPosition().getX()/parameters.getBoxSize()][agent.getCurrentPosition().getY()/parameters.getBoxSize()] = agent;
-		//}
 	}
 	
 	public void addAgent(Agent agent){

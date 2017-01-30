@@ -3,6 +3,7 @@ package agent.sma.model;
 import java.awt.Color;
 
 import agent.sma.core.Agent;
+import agent.sma.core.Environment;
 import agent.sma.parameter.Parameter;
 
 public class Particule extends Agent {
@@ -13,8 +14,6 @@ public class Particule extends Agent {
 		this.lifetime = lifeTime * 50;
 		this.color = color;
 
-		//setRandomDirection(hashCode);
-		
 		nextMove.setX(parameters.getBoxSize());
 		nextMove.setY(parameters.getBoxSize());
 	}
@@ -34,10 +33,6 @@ public class Particule extends Agent {
 			//		/ parameters.getBoxSize()] = this;
 		} else {
 			needToFreeze = false;
-		}
-
-		if (parameters.needTrace() && this.needToFreeze) {
-			System.out.println(trace());
 		}
 		lifetime--;
 		if(lifetime == 0){
@@ -75,11 +70,4 @@ public class Particule extends Agent {
 
 	    return new Color((int) r, (int) g, (int) b, (int)a);
 	  }
-	
-	@Override
-	public String trace(){
-		return "Particle;" + color + ";x=" + nextMove.getX() / parameters.getBoxSize() + ";y="
-				+ nextMove.getY() / parameters.getBoxSize();
-	}
-
 }

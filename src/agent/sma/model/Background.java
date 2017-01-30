@@ -3,6 +3,7 @@ package agent.sma.model;
 import java.awt.Color;
 
 import agent.sma.core.Agent;
+import agent.sma.core.Environment;
 import agent.sma.parameter.Parameter;
 
 public class Background extends Agent {
@@ -27,11 +28,6 @@ public class Background extends Agent {
 
 	@Override
 	public void agentCollisionReaction(Agent collided) {
-	}
-	
-	@Override
-	public String trace(){
-		return "";
 	}
 
 }

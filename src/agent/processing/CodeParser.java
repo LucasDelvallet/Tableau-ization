@@ -19,9 +19,9 @@ public class CodeParser {
 		
 	}
 	
-	public Map<String, Integer> parseFile(String fileName){
-	    Map<String, Integer> countByWords = new HashMap<String, Integer>();
-	    Scanner s;
+	public LinkedHashMap<String, Integer> parseFile(String fileName){
+		LinkedHashMap<String, Integer> countByWords = new LinkedHashMap<String, Integer>();
+
 		try {
 			File f = new File("");
 			String n = f.getAbsolutePath() + "\\Input\\"+fileName;
@@ -31,7 +31,6 @@ public class CodeParser {
 				String content = removeCommentary(sc.nextLine());
 				if (content == null) continue;
 				content = content.replaceAll("[^A-Za-z0-9]", " ");
-				//System.out.println(content);
 
 				for (String next : content.split("[ \t\\x0B\f\r]+")) {
 					if(!next.isEmpty()){
