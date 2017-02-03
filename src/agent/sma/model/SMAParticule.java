@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import agent.main.Main;
-import agent.processing.CodeParser;
 import agent.sma.core.Agent;
 import agent.sma.core.SMA;
 import agent.sma.parameter.Parameter;
+import main.Main;
+import processing.CodeParser;
 
 public class SMAParticule extends SMA {
 
@@ -62,9 +62,7 @@ public class SMAParticule extends SMA {
 		    Color color = Color.decode(sColor);
 		    
 		    for(int i = 0; i < (entry.getValue() * ratioUpscale); i++){
-				//int index = rand.nextInt(possiblePositions.size());
 		    	agentlist.add(new Particule(environment, parameters, new Position(x, y), color, hashCode, entry.getValue() + turn));
-				//possiblePositions.remove(0);
 		    	
 		    	if(l){
 		    		y++;

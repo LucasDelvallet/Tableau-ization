@@ -1,20 +1,20 @@
-package agent.main;
+package main;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import agent.generator.ImageGenerator;
 import agent.sma.core.SMA;
 import agent.sma.model.SMAParticule;
 import agent.sma.parameter.Parameter;
 import agent.sma.parameter.ParameterReader;
+import generator.ImageGenerator;
 
 public class Main {
 
 	public static final String FOLDERNAME = "Input";
-	public static String FILENAME = "Test1.java";
+	public static String FILENAME = "M3DS (1).txt";
 	public static void main(String[] args) {
 		try {
 			
@@ -40,10 +40,7 @@ public class Main {
 	
 	public static List<String> getAllFilesNameFromRessourceDirectory(){
         List<String> results = new ArrayList<String>();
-
-
         File[] files = new File(FOLDERNAME).listFiles();
-        //If this pathname does not denote a directory, then listFiles() returns null.
 
         for (File file : files) {
             if (file.isFile()) {

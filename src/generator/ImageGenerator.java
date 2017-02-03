@@ -1,4 +1,4 @@
-package agent.generator;
+package generator;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -9,9 +9,9 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import agent.main.Main;
 import agent.sma.core.Agent;
 import agent.sma.model.Position;
+import main.Main;
 
 public class ImageGenerator {
 	public ImageGenerator(){

@@ -4,10 +4,5 @@ gridSizeX 500
 gridSizeY 500
 boxSize 1
 delay 0
-scheduling 0
 nbTicks 1000
-grid true
-trace false
-seed 1
 refresh 1
-toric false

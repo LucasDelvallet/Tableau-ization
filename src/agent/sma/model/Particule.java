@@ -26,11 +26,7 @@ public class Particule extends Agent {
 	@Override
 	public void update() {
 		if (!needToFreeze) {
-			//environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
-			//		/ parameters.getBoxSize()] = null;
 			currentPosition = this.getNextPosition();
-			//environment.agentsPosition[currentPosition.getX() / parameters.getBoxSize()][currentPosition.getY()
-			//		/ parameters.getBoxSize()] = this;
 		} else {
 			needToFreeze = false;
 		}
@@ -48,10 +44,6 @@ public class Particule extends Agent {
 	public void agentCollisionReaction(Agent collided) {
 		if(collided.getClass().getSimpleName().equals("Background")){
 			collided.setColor(blend(this.color, collided.getColor()));
-		}else{
-			//Position tmp = collided.getNextMove();
-			//collided.setNextMove(getNextMove());
-			//setNextMove(tmp);
 		}
 	}
 	
