@@ -14,7 +14,7 @@ import generator.ImageGenerator;
 public class Main {
 
 	public static final String FOLDERNAME = "Input";
-	public static String FILENAME = "M3DS (1).txt";
+	public static String FILENAME = "M3DS (10).cpp";
 	public static void main(String[] args) {
 		try {
 			
