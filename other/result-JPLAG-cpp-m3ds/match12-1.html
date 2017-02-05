@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>M3DS (3).cpp</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>M3DS (3).cpp</CENTER></H3><HR>
+<PRE>
+
+ESign FaceBSP::sign(const Vector3 &amp;p) const {
+    Vector3 ap = p - _tabVertex[0]-&gt;point();
+
+    double res =_normal.dot(ap);
+
+    if(res&lt;0.0){
+        return SIGN_MINUS;
+    } else {
+        return SIGN_PLUS;
+    }
+}
+
+
+Vector3 FaceBSP::intersection(const Vector3 &amp;p1,const Vector3 &amp;p2) const {
+
+    Vector3 res;
+
+    Vector3 A = _tabVertex[0]-&gt;point();
+    Vector3 Ap1 = p1 - A;
+    Vector3 p1p2 = p2 - p1;
+
+<A NAME="0"></A>    double sAp1 = _normal.dot(Ap1);
+    double sp1p2 = _normal.dot(p1p2);
+
+<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match12-0.html#0',2,'match12-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>    double k = fabs(sAp1)/fabs(sp1p2);
+
+    res = p1+k*p1p2;
+
+    return res;
+}
+
+
+
+void FaceBSP::separe(const FaceBSP &amp;f) {
+  
+
+    int size = _tabVertex.size();
+    int last_index = size -1;
+    Vector3 last_point = this-&gt;point(last_index);
+    ESign last_sign = f.sign(last_point);
+
+    for(int i=0; i&lt;size; i++){
+
+        Vector3 current_point = this-&gt;point(i);
+        ESign current_sign = f.sign(current_point);
+
+        if(current_sign != last_sign){
+
+            Vector3 intersection = f.intersection(current_point, last_point);
+            VertexBSP *intersect = createVertex(intersection);
+            intersect-&gt;interpolateNormal(*_tabVertex[i],*_tabVertex[last_index]);
+
+            vertexNegative.push_back(intersect);
+            vertexPositive.push_back(intersect);
+        }
+
+        last_point = current_point;
+        last_sign = current_sign;
+        last_index = i;
+
+        if (current_sign == SIGN_MINUS) {
+            vertexNegative.push_back(_tabVertex[i]);
+        } else {
+            vertexPositive.push_back(_tabVertex[i]);
+        }
+    }
+}</B></FONT>
+</PRE>
+</BODY>
+</HTML>
