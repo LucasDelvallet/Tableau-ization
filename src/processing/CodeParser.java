@@ -24,7 +24,7 @@ public class CodeParser {
 
 		try {
 			File f = new File("");
-			String n = f.getAbsolutePath() + "\\Input\\"+fileName;
+			String n = f.getAbsolutePath() + File.separator + "Input" + File.separator + fileName;
 			
 			Scanner sc = new Scanner(new File(n));
 			while(sc.hasNextLine()){
