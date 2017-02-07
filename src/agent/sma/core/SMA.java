@@ -11,11 +11,13 @@ public abstract class SMA extends Observable {
 	protected List<Agent> agentlist;
 	protected Environment environment;
 	protected Parameter parameters;
+	protected String fileName;
 	
-	public SMA(Parameter parameters){
+	public SMA(Parameter parameters, String fileName){
 		this.parameters = parameters;
 		this.environment = new Environment(this, parameters);
-		
+
+		this.fileName = fileName;
 		initAgent(parameters);
 		environment.setAgentlist(agentlist);
 	}

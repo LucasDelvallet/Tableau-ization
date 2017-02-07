@@ -15,16 +15,18 @@ import java.util.Scanner;
 public class CodeParser {
 
 	public Boolean commentaryDetected = false;
+	public String fileExtention;
 	public CodeParser(){
 		
 	}
 	
 	public LinkedHashMap<String, Integer> parseFile(String fileName){
 		LinkedHashMap<String, Integer> countByWords = new LinkedHashMap<String, Integer>();
+        fileExtention = getFileExtention(fileName);
 
 		try {
 			File f = new File("");
-			String n = f.getAbsolutePath() + File.separator + "Input" + File.separator + fileName;
+			String n = fileName;
 			
 			Scanner sc = new Scanner(new File(n));
 			while(sc.hasNextLine()){
@@ -69,9 +71,13 @@ public class CodeParser {
 	}
 
 	public String removeCommentary(String str){
-		int  commentaryBegin = str.indexOf("/**");
-		int commentaryEnd = str.indexOf("*/");
-		int singleCommentary = str.indexOf("//");
+	    if (!Commentary.hashCommentaries.containsKey(this.fileExtention)){
+	        return str;
+        }
+	    Commentary commentary = Commentary.hashCommentaries.get(this.fileExtention);
+		int  commentaryBegin = str.indexOf(commentary.startLong);
+		int commentaryEnd = str.indexOf(commentary.endLong);
+		int singleCommentary = str.indexOf(commentary.simple);
 
 		if (commentaryDetected){
 			if (commentaryEnd != -1){
@@ -91,4 +97,14 @@ public class CodeParser {
 		}
 		return str;
 	}
+
+	private String getFileExtention(String fileName){
+        String extension = "";
+
+        int i = fileName.lastIndexOf('.');
+        if (i > 0) {
+            extension = fileName.substring(i+1);
+        }
+        return "."+extension;
+    }
 }

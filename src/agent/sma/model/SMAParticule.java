@@ -4,19 +4,19 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import agent.sma.core.Agent;
 import agent.sma.core.SMA;
 import agent.sma.parameter.Parameter;
-import main.Main;
 import processing.CodeParser;
 
 public class SMAParticule extends SMA {
 
-	public SMAParticule(Parameter parameters) {
-		super(parameters);
+
+
+	public SMAParticule(Parameter parameters, String fileName) {
+		super(parameters, fileName);
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class SMAParticule extends SMA {
 		}
 		
 		CodeParser codeParser = new CodeParser();
-		LinkedHashMap<String, Integer> wordsByCount = codeParser.parseFile(Main.FILENAME);
+		LinkedHashMap<String, Integer> wordsByCount = codeParser.parseFile(fileName);
 		int x = 0;
 		int y = 0;
 		boolean l = true;

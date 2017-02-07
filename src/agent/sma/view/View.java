@@ -32,14 +32,16 @@ public class View extends JPanel implements Observer{
 		super.paint(g);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setPaint(Color.GRAY);
-		
-		List<Agent> agentlist = sma.getAgentlist();
-		for(int i = 0; i < agentlist.size(); i++){
-			Agent agent = agentlist.get(i);
-			String agentType = agent.getClass().getSimpleName();
-			if(agentType.equals("Background")){
-				g2.setColor(agent.getColor());	
-				g2.fillRect(agent.getCurrentPosition().getX(), agent.getCurrentPosition().getY(), parameters.getBoxSize(), parameters.getBoxSize());
+
+		if(sma != null){
+			List<Agent> agentlist = sma.getAgentlist();
+			for(int i = 0; i < agentlist.size(); i++){
+				Agent agent = agentlist.get(i);
+				String agentType = agent.getClass().getSimpleName();
+				if(agentType.equals("Background")){
+					g2.setColor(agent.getColor());
+					g2.fillRect(agent.getCurrentPosition().getX(), agent.getCurrentPosition().getY(), parameters.getBoxSize(), parameters.getBoxSize());
+				}
 			}
 		}
 		Toolkit.getDefaultToolkit().sync();

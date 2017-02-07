@@ -14,8 +14,10 @@ import agent.sma.model.Position;
 import main.Main;
 
 public class ImageGenerator {
-	public ImageGenerator(){
-		
+
+	private String fileName;
+	public ImageGenerator(String fileName){
+		this.fileName = fileName;
 	}
 	
 	
@@ -34,7 +36,10 @@ public class ImageGenerator {
 	     }
 	     
 	     try{
-	       f = new File("Output"+File.separator+Main.FILENAME+".png");
+	     	String filePathOutput = fileName+".png";
+			 filePathOutput = filePathOutput.replace(Main.FOLDERNAME, "Output");
+	       f = new File(filePathOutput);
+	       f.getParentFile().mkdirs();
 	       ImageIO.write(img, "png", f);
 	     }catch(IOException e){
 	       System.out.println("Error: " + e);
