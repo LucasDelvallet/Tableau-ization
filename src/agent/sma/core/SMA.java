@@ -26,15 +26,10 @@ public abstract class SMA extends Observable {
 		return agentlist;
 	}
 	
-	public Environment getEnvironment(){
-		return environment;
-	}
-	
 	public void run(){
 		tick = 1;
 		long startTimeTotal = System.currentTimeMillis();
 		while(tick < parameters.getNbTicks()){
-			long startTime = System.currentTimeMillis();
 
 			for (int i = 0; i < agentlist.size(); i++) {
 				Agent agent = agentlist.get(i);
@@ -58,7 +53,7 @@ public abstract class SMA extends Observable {
 		}
 		long endTimeTotal = System.currentTimeMillis();
 		long durationTotal = (endTimeTotal - startTimeTotal);
-		System.out.println("Total time : " + durationTotal +" ms");
+		System.out.println("Total time : " + durationTotal +" ms for the file " + this.fileName);
 	}
 	
 	public void addAgent(Agent agent){

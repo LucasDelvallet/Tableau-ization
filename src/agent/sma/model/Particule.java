@@ -35,10 +35,7 @@ public class Particule extends Agent {
 			this.environment.removeAgent(this);
 		}
 	}
-	
-	public boolean needToFreeze() {
-		return needToFreeze;
-	}
+
 
 	@Override
 	public void agentCollisionReaction(Agent collided) {

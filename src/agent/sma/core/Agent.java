@@ -29,14 +29,6 @@ public abstract class Agent {
 		return new Position(currentPosition.getX()/parameters.getBoxSize(), currentPosition.getY()/parameters.getBoxSize());
 	}
 
-	public Position getNextMove() {
-		return nextMove;
-	}
-
-	public void setNextMove(Position nextMove) {
-		needToFreeze = true;
-		this.nextMove = nextMove;
-	}
 
 	public Color getColor() {
 		return color;
@@ -97,7 +89,6 @@ public abstract class Agent {
 			res = true;
 		}
 		needToFreeze = res;
-		nextPosition = getNextPosition();
 
 		return res;
 	}
