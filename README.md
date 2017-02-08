@@ -1,5 +1,5 @@
 # Tableau-ization
-The main purpose of this project is to transform any source code into an stylized picture.
+The purpose of this project is to transform any source code into an stylized picture.
 
 Here's a few example of file transformed by our project: 
 
@@ -8,6 +8,29 @@ Here's a few example of file transformed by our project:
 <a href="url"><img src="http://img11.hostingpics.net/pics/240823AgentLucasjava.png" height="275"></a>
 <a href="url"><img src="http://img11.hostingpics.net/pics/146775AgentDavidjava.png" height="275"></a>
 </p>
+
+## Why ?
+
+An advantage of this project, is to detect code plagiarism in the output pictures. Here's an example : 
+
+<p align="center">
+<a href="url"><img src="http://img11.hostingpics.net/pics/568310M3DS1cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/876120M3DS2cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/905121M3DS3cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/757448M3DS4cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/804605M3DS5cpp.png" height="150"></a>
+</p>
+
+<p align="center">
+<a href="url"><img src="http://img11.hostingpics.net/pics/824987M3DS6cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/502158M3DS7cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/133119M3DS8cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/290841M3DS9cpp.png" height="150"></a>
+<a href="url"><img src="http://img11.hostingpics.net/pics/334868M3DS10cpp.png" height="150"></a>
+</p>
+
+These are all students source code for a same exercice. Do you see, how, some of these are alike ?
+
 
 ## How it works
 
@@ -26,6 +49,13 @@ To draw the picture, we use a [multi agent system](https://en.wikipedia.org/wiki
 The agent are placed depending of the words found in the input file. The color is determined by the Hash of the word. And the number of agent for a specified word is determined by the number of occurence of this particular word. The more a word appear, the more his vector will be large and will last longer in the generated picture.
 
 ## How do I use it ?
+
+The main can be launched in two different mode :
+
+- Default mode, which generate a beautiful picture of your code present in the Input file.
+- Visual mode, which does the same, but you can see how it's generated. Here's an example : 
+
+
 
 ## Credits
 
