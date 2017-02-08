@@ -54,7 +54,9 @@ The main can be launched in two different mode :
 
 - Default mode, which generate a beautiful picture of your code present in the Input file.
 - Visual mode, which does the same, but you can see how it's generated. Here's an example : 
-
+<p align="center">
+<a href="url"><img src="https://media.giphy.com/media/l0ExdKgFY2GxlQPK0/source.gif" height="275"></a>
+</p>
 
 
 ## Credits
