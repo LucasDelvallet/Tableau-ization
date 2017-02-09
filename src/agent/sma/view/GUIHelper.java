@@ -1,11 +1,9 @@
 package agent.sma.view;
 
-
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-
 
 public class GUIHelper {
 
@@ -19,7 +17,7 @@ public class GUIHelper {
 
 	}
 
-	public void closeFrame(){
+	public void closeFrame() {
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 

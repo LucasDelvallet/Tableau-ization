@@ -5,12 +5,11 @@ public class Parameter {
 	private int gridSizeY;
 	private int boxSize;
 	private int delay;
-	private int nbTicks; 
+	private int nbTicks;
 	private int refresh;
 
-	
 	private int wallsPercentage;
-	
+
 	public Parameter(int gridSizeX, int gridSizeY, int boxSize, int delay, int nbTicks, int refresh) {
 		this.gridSizeX = gridSizeX;
 		this.gridSizeY = gridSizeY;
@@ -43,12 +42,12 @@ public class Parameter {
 	public int getRefresh() {
 		return refresh;
 	}
-	
+
 	public int getWallsPercent() {
 		return wallsPercentage;
 	}
-	
-	public void setEndOfGame(){
+
+	public void setEndOfGame() {
 		this.nbTicks = 0;
 	}
 }

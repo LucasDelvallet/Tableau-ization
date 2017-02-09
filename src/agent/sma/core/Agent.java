@@ -24,16 +24,16 @@ public abstract class Agent {
 	public Position getCurrentPosition() {
 		return currentPosition;
 	}
-	
-	public Position getCurrentIndex(){
-		return new Position(currentPosition.getX()/parameters.getBoxSize(), currentPosition.getY()/parameters.getBoxSize());
-	}
 
+	public Position getCurrentIndex() {
+		return new Position(currentPosition.getX() / parameters.getBoxSize(),
+				currentPosition.getY() / parameters.getBoxSize());
+	}
 
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public void setColor(Color color) {
 		this.color = color;
 	}
@@ -61,7 +61,7 @@ public abstract class Agent {
 
 		return false;
 	}
-	
+
 	/**
 	 * @return true if there is a collision
 	 */
@@ -97,5 +97,5 @@ public abstract class Agent {
 
 	public abstract void update();
 
-	public abstract void agentCollisionReaction(Agent collided);	
+	public abstract void agentCollisionReaction(Agent collided);
 }

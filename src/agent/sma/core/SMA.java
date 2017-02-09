@@ -6,14 +6,14 @@ import java.util.Observable;
 import agent.sma.parameter.Parameter;
 
 public abstract class SMA extends Observable {
-	
+
 	public static int tick;
 	protected List<Agent> agentlist;
 	protected Environment environment;
 	protected Parameter parameters;
 	protected String fileName;
-	
-	public SMA(Parameter parameters, String fileName){
+
+	public SMA(Parameter parameters, String fileName) {
 		this.parameters = parameters;
 		this.environment = new Environment(this, parameters);
 
@@ -21,15 +21,15 @@ public abstract class SMA extends Observable {
 		initAgent(parameters);
 		environment.setAgentlist(agentlist);
 	}
-	
-	public List<Agent> getAgentlist(){
+
+	public List<Agent> getAgentlist() {
 		return agentlist;
 	}
-	
-	public void run(){
+
+	public void run() {
 		tick = 1;
 		long startTimeTotal = System.currentTimeMillis();
-		while(tick < parameters.getNbTicks()){
+		while (tick < parameters.getNbTicks()) {
 
 			for (int i = 0; i < agentlist.size(); i++) {
 				Agent agent = agentlist.get(i);
@@ -37,15 +37,14 @@ public abstract class SMA extends Observable {
 				agent.update();
 			}
 
-			
 			tick++;
-			
-			if(parameters.getRefresh()!= 0 && (tick == 0 || tick % parameters.getRefresh() == 0)){
+
+			if (parameters.getRefresh() != 0 && (tick == 0 || tick % parameters.getRefresh() == 0)) {
 				setChanged();
-	            notifyObservers();
+				notifyObservers();
 			}
-			
-            try {
+
+			try {
 				Thread.sleep(parameters.getDelay());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -53,16 +52,16 @@ public abstract class SMA extends Observable {
 		}
 		long endTimeTotal = System.currentTimeMillis();
 		long durationTotal = (endTimeTotal - startTimeTotal);
-		System.out.println("Total time : " + durationTotal +" ms for the file " + this.fileName);
+		System.out.println("Total time : " + durationTotal + " ms for the file " + this.fileName);
 	}
-	
-	public void addAgent(Agent agent){
+
+	public void addAgent(Agent agent) {
 		agentlist.add(agent);
 	}
-	
-	public void removeAgent(Agent agent){
+
+	public void removeAgent(Agent agent) {
 		agentlist.remove(agent);
 	}
-	
+
 	protected abstract void initAgent(Parameter parameters);
 }

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JScrollPane;
+
 import agent.sma.core.SMA;
 import agent.sma.model.SMAParticule;
 import agent.sma.parameter.Parameter;
@@ -13,8 +15,6 @@ import agent.sma.view.GUIHelper;
 import agent.sma.view.View;
 import generator.ImageGenerator;
 
-import javax.swing.*;
-
 public class Main {
 
 	public static final String FOLDERNAME = "Input";
@@ -22,7 +22,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			
+
 			List<File> files = getAllFilesFromRessourceDirectory(FOLDERNAME, new ArrayList<File>());
 
 			for (File file : files) {
@@ -32,11 +32,11 @@ public class Main {
 
 				GUIHelper guiHelper = null;
 				View view = null;
-				if(activateView){
+				if (activateView) {
 					view = new View(param);
 					sma.addObserver(view);
 					JScrollPane scrollPane = new JScrollPane(view);
-					guiHelper = new GUIHelper(scrollPane,file.getName());
+					guiHelper = new GUIHelper(scrollPane, file.getName());
 				}
 
 				sma.run();
@@ -44,7 +44,7 @@ public class Main {
 				ImageGenerator imgGenerator = new ImageGenerator(file.getCanonicalPath());
 				imgGenerator.writeToFile(sma.getAgentlist(), param.getGridSizeX(), param.getGridSizeY());
 
-				if(activateView){
+				if (activateView) {
 					sma.deleteObserver(view);
 					guiHelper.closeFrame();
 				}
@@ -52,21 +52,20 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}	
-	
-	public static List<File> getAllFilesFromRessourceDirectory(String folderPath, List<File> results){
+	}
 
-        File[] files = new File(folderPath).listFiles();
+	public static List<File> getAllFilesFromRessourceDirectory(String folderPath, List<File> results) {
 
-        for (File file : files) {
-            if (file.isFile()) {
+		File[] files = new File(folderPath).listFiles();
+
+		for (File file : files) {
+			if (file.isFile()) {
 				results.add(file);
-            } else if (file.isDirectory()){
+			} else if (file.isDirectory()) {
 				getAllFilesFromRessourceDirectory(file.getPath(), results);
 			}
-        }
-        return results;
-    }
-
+		}
+		return results;
+	}
 
 }
